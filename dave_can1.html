@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D'ROSE INTER-CONTINENTAL CANTEEN</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding: 20px;
+            background-color: #87CEEB; /* Sky blue background color */
+        }
+        .bill-container {
+            margin-top: 20px;
+            background-color: #d3d3d3; /* Grey background color */
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .bill-header {
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+            font-size: 24px;
+        }
+        .bill-details {
+            margin-top: 20px;
+        }
+        .bill-footer {
+            text-align: right;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .thank-you-message {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+            font-style: italic;
+            color: #000;
+            display: none; /* Initially hidden */
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        #newOrderBtn {
+            display: none;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <!-- Services Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                            <li><a class="dropdown-item" href="#">Home Delivery Service</a></li>
+                            <li><a class="dropdown-item" href="#">Catering Services</a></li>
+                            <li><a class="dropdown-item" href="#">Consultant Services</a></li>
+                        </ul>
+                    </li>
+                    <!-- Available Food Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="foodDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Available Food
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="foodDropdown">
+                            <li><a class="dropdown-item" href="#">Amala</a></li>
+                            <li><a class="dropdown-item" href="#">Goat Meat (Ogunfe)</a></li>
+                            <li><a class="dropdown-item" href="#">Cow Meat</a></li>
+                            <li><a class="dropdown-item" href="#">Croaker Fish</a></li>
+                            <li><a class="dropdown-item" href="#">Titus Fish</a></li>
+                            <li><a class="dropdown-item" href="#">Panla</a></li>
+                            <li><a class="dropdown-item" href="#">Shawa</a></li>
+                            <li><a class="dropdown-item" href="#">Chicken</a></li>
+                            <li><a class="dropdown-item" href="#">Turkey</a></li>
+                            <li><a class="dropdown-item" href="#">Egg</a></li>
+                            <li><a class="dropdown-item" href="#">Rice</a></li>
+                            <li><a class="dropdown-item" href="#">Fufu</a></li>
+                            <li><a class="dropdown-item" href="#">Eba</a></li>
+                            <li><a class="dropdown-item" href="#">Semo</a></li>
+                            <li><a class="dropdown-item" href="#">Tuwo</a></li>
+                            <li><a class="dropdown-item" href="#">Pounded Yam</a></li>
+                            <li><a class="dropdown-item" href="#">Yam & Egg Sauce</a></li>
+                            <li><a class="dropdown-item" href="#">Indomies</a></li>
+                            <li><a class="dropdown-item" href="#">Snail</a></li>
+                            <li><a class="dropdown-item" href="#">Varieties of Soups</a></li>
+                        </ul>
+                    </li>
+                    <!-- Branch Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="branchDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Branch
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="branchDropdown">
+                            <li><a class="dropdown-item" href="#">Akowonjo Road, Egbeda</a></li>
+                            <li><a class="dropdown-item" href="#">Ikotun, Opposite Eco Bank</a></li>
+                            <li><a class="dropdown-item" href="#">Mary Land</a></li>
+                            <li><a class="dropdown-item" href="#">Ojota</a></li>
+                            <li><a class="dropdown-item" href="#">Oworonshoki</a></li>
+                        </ul>
+                    </li>
+                    <!-- Contact Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="contactDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Contact
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="contactDropdown">
+                            <li><a class="dropdown-item" href="mailto:oyebisidavid55@gmail.com">Email: oyebisidavid55@gmail.com</a></li>
+                            <li><a class="dropdown-item" href="tel:+2349018008405">Phone: 09018008405</a></li>
+                            <li><a class="dropdown-item" href="tel:+2348104945448">Phone: 08104945448</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="https://wa.me/2349018008405" target="_blank">WhatsApp</a></li>
+                            <li><a class="dropdown-item" href="https://t.me/oyebisidavid55" target="_blank">Telegram</a></li>
+                            <li><a class="dropdown-item" href="https://www.facebook.com/yourprofile" target="_blank">Facebook</a></li>
+                            <li><a class="dropdown-item" href="https://twitter.com/yourprofile" target="_blank">Twitter</a></li>
+                            <li><a class="dropdown-item" href="https://www.linkedin.com/in/yourprofile" target="_blank">LinkedIn</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="text-center">D'ROSE INTER-CONTINENTAL CANTEEN</h1>
+        <h2 class="text-center">Idimu-Ejigbo Road, Mingles</h2>
+
+        <form id="item-form" class="row g-3">
+            <div class="col-md-4">
+                <label for="itemName" class="form-label">Item Name</label>
+                <input type="text" class="form-control" id="itemName" required>
+            </div>
+            <div class="col-md-4">
+                <label for="itemPrice" class="form-label">Price per Quantity</label>
+                <input type="number" class="form-control" id="itemPrice" step="0.01" required>
+            </div>
+            <div class="col-md-4">
+                <label for="itemQuantity" class="form-label">Quantity</label>
+                <input type="number" class="form-control" id="itemQuantity" required>
+            </div>
+            <div class="col-12">
+                <button type="button" class="btn btn-primary" id="addItem">Add Item</button>
+            </div>
+        </form>
+
+        <div class="bill-container">
+            <h3 class="bill-header">Bill</h3>
+            <p id="billDate"></p>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Quantity</th>
+                        <th>Price per Quantity</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody id="billItems">
+                    <!-- Items will be added here dynamically -->
+                </tbody>
+            </table>
+            <div class="bill-footer">
+                Total Amount: <span id="totalAmount">0.00</span>
+            </div>
+            <div class="thank-you-message" id="thankYouMessage">
+                Thank you for your patronage, we are always at your service, thank you.
+            </div>
+            <div id="newOrderBtn">
+                <button class="btn btn-success" onclick="resetBill()">Place Another Order</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let totalAmount = 0;
+            const billItems = document.getElementById('billItems');
+            const totalAmountDisplay = document.getElementById('totalAmount');
+            const billDate = document.getElementById('billDate');
+            const newOrderBtn = document.getElementById('newOrderBtn');
+            const thankYouMessage = document.getElementById('thankYouMessage');
+
+            // Display the current date and time
+            const currentDate = new Date().toLocaleString();
+            billDate.textContent = `Date: ${currentDate}`;
+
+            document.getElementById('addItem').addEventListener('click', function() {
+                const itemName = document.getElementById('itemName').value;
+                const itemPrice = parseFloat(document.getElementById('itemPrice').value);
+                const itemQuantity = parseInt(document.getElementById('itemQuantity').value);
+
+                if (itemName && !isNaN(itemPrice) && !isNaN(itemQuantity)) {
+                    const itemTotal = itemPrice * itemQuantity;
+                    totalAmount += itemTotal;
+
+                    const newRow = document.createElement('tr');
+                    newRow.innerHTML = `<td>${itemName}</td><td>${itemQuantity}</td><td>${itemPrice.toFixed(2)}</td><td>${itemTotal.toFixed(2)}</td>`;
+                    billItems.appendChild(newRow);
+
+                    totalAmountDisplay.textContent = totalAmount.toFixed(2);
+
+                    // Show the "Place Another Order" button and thank you message after the first item is added
+                    newOrderBtn.style.display = 'block';
+                    thankYouMessage.style.display = 'block';
+
+                    // Clear the input fields
+                    document.getElementById('item-form').reset();
+                } else {
+                    alert("Please enter valid item details.");
+                }
+            });
+        });
+
+        function resetBill() {
+            // Reset the bill form, hide the "Place Another Order" button and thank you message
+            document.getElementById('item-form').reset();
+            document.getElementById('billItems').innerHTML = '';
+            document.getElementById('totalAmount').textContent = '0.00';
+            document.getElementById('newOrderBtn').style.display = 'none';
+            document.getElementById('thankYouMessage').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
